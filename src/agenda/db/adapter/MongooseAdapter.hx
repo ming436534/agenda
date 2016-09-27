@@ -113,6 +113,10 @@ class AgendaJobManager extends js.npm.mongoose.macro.Manager<AgendaJobData, Agen
 })
 class AgendaJob extends js.npm.mongoose.macro.Model<AgendaJobData> {
 	public function toJob():Job {
+		#if agenda_debug
+			trace(work);
+		#end
+		
 		return new Job({
 			id: id,
 			attempts: attempts.map(toAttempt),
